@@ -6,6 +6,11 @@ import Alamofire
 import sqlite3
 import XCTest
 
+// example C extension
+// https://github.com/SwiftJava/swift-android-Clibadder
+// https://www.bensnider.com/wrapping-c-code-within-a-single-swift-package.html
+import Clibadder
+
 // responder variable moved to Statics.swift
 // so it isn't reset when class is injected.
 //// link back to Java side of Application
@@ -100,6 +105,9 @@ class SwiftListenerImpl: SwiftHelloBinding_Listener {
             }
             sqlite3_finalize(stmt)
         }
+
+        // C extension example
+        NSLog("5 + 6 = \(SimpleAdd().add(5, 6))")
 
         // XCTest test
         let uuidA = NSUUID()

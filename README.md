@@ -22,12 +22,12 @@ Context.getCacheDir().getPath() from the java side. In addition, to be able to u
 need to add a [CARoot info file](http://curl.haxx.se/docs/caextract.html) to the application's
 raw resources and copy it to this cache directory to be picked up by Foundation as follows:
 
-    setenv("URLSessionCAInfo", cacheDir! + "/cacert.pem", 1)
+    setenv("URLSessionCertificateAuthorityInfoFile", cacheDir! + "/cacert.pem", 1)
     setenv("TMPDIR", cacheDir!, 1)
 
 If you don't want peer validation you have the following option (not recommended at all)
 
-    setenv("URLSessionCAInfo", “INSECURE_SSL_NO_VERIFY”, 1)
+    setenv("URLSessionCertificateAuthorityInfoFile", “INSECURE_SSL_NO_VERIFY”, 1)
 
 ##
 
